@@ -28,6 +28,9 @@
         <activity
             android:name=".NewTweetActivity"
             android:label="New Tweet" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="Settings" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />

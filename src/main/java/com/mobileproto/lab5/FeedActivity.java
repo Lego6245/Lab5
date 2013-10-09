@@ -22,7 +22,6 @@ public class FeedActivity extends Activity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
-        prefs.edit().putString("username", "timmy").commit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -70,9 +69,16 @@ public class FeedActivity extends Activity {
             case R.id.action_newTweet:
                 openNewTweet();
                 return true;
+            case R.id.action_settings:
+                openSettings();
             default:
                 return super.onOptionsItemSelected(item);
         }
+    }
+
+    private void openSettings() {
+        Intent in = new Intent(this, SettingsActivity.class);
+        startActivity(in);
     }
 
     private void openNewTweet() {
