@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 
 import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 import org.joda.time.DateTime;
@@ -63,6 +65,7 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
         TextView userName;
         TextView text;
         TextView date;
+        ImageButton avi;
 
     }
 
@@ -83,8 +86,6 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
     public View getView(int position, View convertView, ViewGroup parent){
         FeedItemHolder holder;
         View feedRow = convertView;
-//        Button avi = (Button) convertView.findViewById((R.id.imageView));
-//        avi.setOnClickListener(this);
         if(feedRow == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
             feedRow = inflater.inflate(R.layout.feed_item, parent, false);
@@ -92,7 +93,17 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
             holder.userName = (TextView) feedRow.findViewById(R.id.feedItemUser);
             holder.text = (TextView) feedRow.findViewById(R.id.feedText);
             holder.date = (TextView) feedRow.findViewById(R.id.feedItemDate);
-
+            holder.avi = (ImageButton)feedRow.findViewById((R.id.aviButton));
+            holder.avi.setOnClickListener(new OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent in = new Intent(getContext(), ProfileActivity.class);
+                    TextView usernameV = (TextView)((View)v.getParent()).findViewById(R.id.feedItemUser);
+                    String username = usernameV.getText().toString();
+                    in.putExtra("username", username);
+                    getContext().startActivity(in);
+                }
+            });
             feedRow.setTag(holder);
         } else {
             holder = (FeedItemHolder) feedRow.getTag();
@@ -105,11 +116,6 @@ public class FeedListAdapter extends ArrayAdapter<FeedItem> {
         setDate(holder, item);
         feedRow.setOnClickListener(new OnItemClickListener(item));
         return feedRow;
-    }
-
-    public void onClick(View arg0)
-    {
-
     }
 
     private class OnItemClickListener implements OnClickListener{
