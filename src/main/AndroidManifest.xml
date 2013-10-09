@@ -25,6 +25,9 @@
         <activity
             android:name=".TweetDetailActivity"
             android:label="Tweet" />
+        <activity
+            android:name=".NewTweetActivity"
+            android:label="New Tweet" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET" />
