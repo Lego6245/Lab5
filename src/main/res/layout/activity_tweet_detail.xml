@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="match_parent" android:layout_height="match_parent">
 
-    <ImageView
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+    <ImageButton
+        android:layout_width="96dp"
+        android:layout_height="96dp"
         android:id="@+id/imageView"
         android:background="@drawable/social_person"
         android:layout_gravity="left|center_vertical" />
@@ -14,19 +13,19 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="Medium Text"
-        android:id="@+id/connectionItemUser"
+        android:id="@+id/feedItemUserD"
         android:layout_alignParentTop="true"
         android:layout_toRightOf="@+id/imageView" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Small Text"
-        android:id="@+id/connectionText"
-        android:layout_below="@+id/connectionItemUser"
+        android:id="@+id/feedTextD"
+        android:layout_below="@+id/feedItemUserD"
         android:layout_toRightOf="@+id/imageView" />
 
     <TextView
@@ -34,8 +33,10 @@
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:text="Date"
-        android:id="@+id/connectionItemDate"
-        android:layout_below="@+id/connectionItemUser"
-        android:layout_alignParentRight="true"
-        android:textColor="#ababab" />
+        android:id="@+id/feedItemDateD"
+        android:textColor="#ababab"
+        android:layout_alignBottom="@+id/imageView"
+        android:layout_alignParentRight="true" />
+
+
 </RelativeLayout>

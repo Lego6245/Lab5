@@ -3,10 +3,13 @@ package com.mobileproto.lab5;
 import android.app.ActionBar;
 import android.app.Fragment;
 import android.app.FragmentTransaction;
+import android.content.SharedPreferences;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.app.Activity;
+import android.preference.PreferenceManager;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.widget.ListView;
 
 import java.util.ArrayList;
@@ -16,6 +19,8 @@ public class FeedActivity extends Activity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(this);
+        prefs.edit().putString("username", "timmy").commit();
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -48,6 +53,13 @@ public class FeedActivity extends Activity {
 
         actionBar.setStackedBackgroundDrawable(new ColorDrawable(getResources().getColor(R.color.android_dark_blue)));
 
+    }
+
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu items for use in the action bar
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.main_activity_actions, menu);
+        return super.onCreateOptionsMenu(menu);
     }
 
 

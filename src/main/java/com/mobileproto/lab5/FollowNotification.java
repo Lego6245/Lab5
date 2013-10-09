@@ -8,9 +8,9 @@ public class FollowNotification extends FeedNotification {
     String userFrom;
     String userTo;
 
-    public FollowNotification(String userFrom, String userTo){
-        super(userFrom, userTo, userFrom + " is now following you!", "follow");
-        this.userFrom = userFrom + " is now following you!";
+    public FollowNotification(String userFrom, String userTo, long dateTime){
+        super(userFrom, userTo, userFrom + " is now following you!", "follow", dateTime);
+        //this.userFrom = userFrom + " is now following you!";
         this.userTo = userTo;
     }
 

@@ -9,8 +9,8 @@ public class MentionNotification extends FeedNotification {
     String userTo;
     String text;
 
-    public MentionNotification(String userFrom, String userTo, String text){
-        super(userFrom, userTo, text, "mention");
+    public MentionNotification(String userFrom, String userTo, String text, long dateTime){
+        super(userFrom, userTo, text, "mention", dateTime);
         this.userFrom = userFrom;
         this.userTo = userTo;
         this.text = text;
